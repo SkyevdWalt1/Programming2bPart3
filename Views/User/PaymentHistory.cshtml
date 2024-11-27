@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Payment History";
+}
+
+@model List<Claim>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Payment History</h1>
+    <div class="payments">
+        @if (Model.Any()) {
+            foreach (Claim claim in Model) {
+                <div class="payment card mb-3 p-3">
+                    <h5>@claim.Title</h5>
+                    <div>
+                        <p><strong>Rate:</strong> R @claim.HourlyRate</p>
+                        <p><strong>Hours:</strong> R @claim.Hours</p>
+                        <p><strong>Total:</strong> R @claim.Total</p>
+                        <p><strong>Start Date:</strong> @claim.StartDate.ToShortDateString()</p>
+                        <p><strong>End Date:</strong> @claim.EndDate.ToShortDateString()</p>
+                    </div>
+
+                    <!-- Download Invoice Button -->
+                    <form asp-action="DownloadInvoice" asp-controller="User" method="post" class="mt-3">
+                        <input type="hidden" name="claimId" value="@claim.ID" />
+                        <button type="submit" class="btn btn-info">Download Invoice</button>
+                    </form>
+                </div>
+            }
+        } else {
+            <div class="alert alert-info" role="alert">
+                No payment history available.
+            </div>
+        }
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-action="Index" asp-controller="User" class="btn btn-primary">Back</a>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .payments {
+        margin-top: 20px;
+    }
+
+    .payment {
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+        background-color: #ffffff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+        .payment h5 {
+            margin: 0 0 10px;
+        }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+        color: white;
+    }
+
+        .btn-info:hover {
+            background-color: #138496;
+            border-color: #117a8b;
+        }
+</style>

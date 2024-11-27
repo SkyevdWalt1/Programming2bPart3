@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["TItle"] = "View all";
+}
+
+
+@model Dictionary<string, List<Claim>>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">All Claims</h1>
+    @foreach (string key in Model.Keys) {
+        <div class="claims-group mb-4">
+            <h3 class="border-bottom pb-2">@key</h3>
+            @foreach (Claim claim in Model[key]) {
+                <div class="claim-card border rounded p-3 mb-3">
+                    <h4>@claim.Title</h4>
+                    <div>
+                        <p><strong>Rate:</strong> R @claim.HourlyRate</p>
+                        <p><strong>Hours:</strong> @claim.Hours</p>
+                        <p><strong>Total:</strong> R @claim.Total</p>
+                    </div>
+                    <div>
+                        <p><strong>Start Date:</strong> @claim.StartDate.ToShortDateString()</p>
+                        <p><strong>End Date:</strong> @claim.EndDate.ToShortDateString()</p>
+                    </div>
+                    <div>
+                        <p><strong>Status:</strong> <span class="badge bg-info">@claim.Status</span></p>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+    <div class="custom-button text-center">
+        <a asp-action="Index" asp-controller="Admin" class="btn btn-secondary">Back</a>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .claim-card {
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .claims-group {
+        margin-bottom: 20px;
+    }
+
+    .custom-button a {
+        text-decoration: none;
+    }
+</style>

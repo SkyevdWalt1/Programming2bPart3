@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["TItle"] = "Submit Payment";
+}
+
+
+@model ViewContractsModel
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Submitted Claims</h1>
+    @if (Model.Claims.Count == 0) {
+        <h2>No Claims to be paid yet!</h2>
+    }
+
+    @foreach (var user in Model.Claims.Keys) {
+        <div class="user-claims mb-4">
+            <h2>@user</h2> <!-- Display username -->
+            @foreach (var claim in Model.Claims[user]) {
+                <form asp-action="PayClaim" method="post" asp-controller="Admin" class="claim-card border rounded p-3 mb-3">
+                    <h4>@claim.Title</h4>
+                    <div>
+                        <p><strong>Hourly Rate:</strong> R @claim.HourlyRate</p>
+                        <p><strong>Hours:</strong> @claim.Hours </p>
+                        <p><strong>Amount:</strong> R @claim.Total </p>
+                    </div>
+
+                    <div>
+                        <p><strong>Start Date:</strong> @claim.StartDate.ToString("yyyy-MM-dd")</p>
+                        <p><strong>End Date:</strong> @claim.EndDate.ToString("yyyy-MM-dd")</p>
+                    </div>
+
+                    <div>
+                        <p><strong>Status:</strong> <span class="badge bg-warning">@claim.Status</span></p>
+                    </div>
+
+                    <!-- Display Documents for the Claim -->
+                    <div>
+                        <strong>Documents:</strong>
+                        @foreach (var doc in claim.Documents) {
+                            <p>
+                                <a asp-controller="Admin" asp-action="DownloadDocument"
+                                   asp-route-claimId="@claim.ID"
+                                   asp-route-fileName="@doc.FileName">
+                                    @doc.FileName
+                                </a>
+                            </p>
+                        }
+                    </div>
+
+                    <!-- Display Notes for the Claim -->
+                    @if (!string.IsNullOrEmpty(claim.Notes)) {
+                        <div>
+                            <strong>Notes:</strong>
+                            <p>@claim.Notes</p>
+                        </div>
+                    }
+
+                    <input type="hidden" name="claimId" value="@claim.ID" />
+                    <div>
+                        @if (claim.Status != "Paid" || claim.Status != "Rejected") {
+                            <button type="submit" name="method" value="pay" class="btn btn-success">Pay Claim</button>
+                            <button type="submit" name="method" value="rej" class="btn btn-danger">Reject Claim</button>
+                        } else {
+                            <p class="text-muted">This claim is already paid</p>
+                        }
+                    </div>
+                </form>
+            }
+        </div>
+    }
+
+    <div class="custom-button text-center">
+        <a asp-action="Index" asp-controller="Admin" class="btn btn-secondary">Back</a>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .claim-card {
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .user-claims {
+        margin-bottom: 20px;
+    }
+</style>

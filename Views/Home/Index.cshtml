@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<style>
+    .home-container {
+        padding: 50px;
+        text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .home-container h1 {
+        color: #2d3436; /* Darker text color for contrast */
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+
+    .lhs, .rhs {
+        display: inline-block;
+        vertical-align: top;
+        width: 45%;
+        padding: 20px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+        border-radius: 8px;
+        background-color: white;
+        margin: 10px;
+    }
+
+    .lhs h2, .rhs h2 {
+        font-size: 28px;
+        color: #0984e3; /* Bright blue for a dynamic feel */
+        margin-bottom: 20px;
+    }
+
+    .lhs ul, .rhs ul {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+        font-size: 18px;
+        line-height: 1.8;
+    }
+
+    .lhs li, .rhs li {
+        margin-bottom: 10px;
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 6px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .lhs li::before, .rhs li::before {
+        content: '✔';
+        color: #55efc4; /* Light green check mark */
+        margin-right: 10px;
+    }
+
+    .lhs {
+        background-color: #dfe6e9; /* Light grey for softer background */
+    }
+
+    .rhs {
+        background-color: #ffeaa7; /* Light yellow to bring warmth */
+    }
+</style>
+
+<div class="text-center home-container">
+    <h1 class="text-center">The Lecturer Payment Portals</h1>
+    <div class="lhs">
+        <h2>How Does it Work?</h2>
+        <ul class="how-works">
+            <li>This website is designed to help streamline the process of getting lecturers paid</li>
+            <li>Lecturers can log claims and create payments</li>
+            <li>Claims made can be seen by the admins</li>
+            <li>Lecturers can now submit supporting documents to further assist the admins</li>
+        </ul>
+    </div>
+    <div class="rhs">
+        <h2>Why you should use us</h2>
+        <ul class="use-us">
+            <li>We make payments easy</li>
+            <li>We allow lecturers to be paid when necessary</li>
+            <li>Payments have never been easier with us</li>
+        </ul>
+    </div>
+</div>

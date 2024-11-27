@@ -1,0 +1,76 @@
+﻿@model UserLoggedInModel
+
+@{
+    ViewData["Title"] = "Portal";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Hello, @Model.User.Username!</h1>
+
+    <div class="user-details mb-4">
+        <p>Welcome to your portal!</p>
+    </div>
+
+    <div class="user-actions">
+        <h3>What would you like to do?</h3>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a asp-action="ViewContracts" asp-controller="User" class="btn btn-link">View Contracts</a>
+            </li>
+            <li class="list-group-item">
+                <a asp-action="SubmitClaim" asp-controller="User" class="btn btn-link">Submit Claims</a>
+            </li>
+            <li class="list-group-item">
+                <a asp-action="PaymentHistory" asp-controller="User" class="btn btn-link">Payment History</a>
+            </li>
+            <li class="list-group-item">
+                <a asp-action="LogOut" asp-controller="User" class="btn btn-link text-danger">Log Out</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        color: #333;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+        background-color: #ffffff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .user-details {
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 15px;
+    }
+
+    .user-actions h3 {
+        margin-top: 20px;
+    }
+
+    .list-group-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .btn-link {
+        text-decoration: none;
+        color: #007bff;
+    }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+
+    .text-danger {
+        color: #dc3545 !important;
+    }
+</style>

@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Sign Up Received";
+}
+
+@model SignInModel
+
+<div class="container mt-5 text-center">
+    <h2 class="mb-4">Your Sign Up Details Have Been Received!</h2>
+    <p>Please check in regularly to see if you have been given access.</p>
+    <p>Please note that your details may take up to 24 hours to be verified.</p>
+    <p>Thank you for registering with us, <strong>@Model.Username</strong>!</p>
+    <a asp-action="Login" class="btn btn-primary mt-3">Go to Login</a>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        color: #333;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+        background-color: #ffffff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        color: #28a745; /* Success color */
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+        .btn-primary:hover {
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+</style>

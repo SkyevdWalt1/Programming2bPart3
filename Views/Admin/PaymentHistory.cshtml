@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["TItle"] = "Payment History";
+}
+
+
+@model Dictionary<string, List<Claim>>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Payment History</h1>
+    <div>
+        @if(Model.Count == 0) {
+            <div>
+                <h2>No Claims payed yet!</h2>
+            </div>
+        }
+
+        @foreach (string user in Model.Keys) {
+            <div class="user-payments mb-4">
+                <h2>@user</h2>
+                @foreach (Claim claim in Model[user]) {
+                    <div class="payment-card border rounded p-3 mb-3">
+                        <h4>@claim.Title</h4>
+                        <div>
+                            <p>Rate: R @claim.HourlyRate &commat; @claim.Hours hrs</p>
+                            <p>Total Amount: R @claim.Total</p>
+                        </div>
+                        <div>
+                            <p>Start Date: @claim.StartDate</p>
+                            <p>End Date: @claim.EndDate</p>
+                        </div>
+                        <div>
+                            <p>Status: <span class="badge bg-info">@claim.Status</span></p>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+
+    <div class="total-amount">
+        <h4 class="text-end">Total: R @Model.Values.SelectMany(c => c).Sum(claim => (claim.Hours * claim.HourlyRate))</h4>
+    </div>
+
+    <div class="custom-button mt-4">
+        <a asp-action="Index" asp-controller="Admin" class="btn btn-secondary">Back</a>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .payment-card {
+        background-color: #ffffff;
+    }
+
+    .total-amount {
+        margin-top: 20px;
+    }
+
+    .custom-button a {
+        text-decoration: none;
+    }
+</style>

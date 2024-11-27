@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["TItle"] = "Manage Users";
+}
+
+
+@model ViewAllUsersModel
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">View All Users</h1>
+
+    <div class="mb-4">
+        <h2>Current Users</h2>
+        @foreach (var user in Model.ActiveUsers) {
+            <div class="user-card border rounded p-3 mb-3">
+                <h3>Username:</h3>
+                <p><strong>@user.Username</strong></p>
+            </div>
+        }
+    </div>
+
+    <div>
+        <h2>Pending Users</h2>
+        @foreach (var pending in Model.PendingUsers) {
+            <div class="pending-user-card border rounded p-3 mb-3">
+                <h3>Username:</h3>
+                <p><strong>@pending.Username</strong> [Pending ID: @pending.ID]</p>
+                <form asp-action="UpdatePendingUser" asp-controller="Admin" method="post" class="d-inline">
+                    <input type="hidden" name="pendingId" value="@pending.ID" />
+                    <button type="submit" name="action" value="confirm" class="btn btn-success me-2">Confirm</button>
+                    <button type="submit" name="action" value="reject" class="btn btn-danger">Reject</button>
+                </form>
+            </div>
+        }
+    </div>
+
+    <div class="custom-button mt-4">
+        <a asp-action="Index" asp-controller="Admin" class="btn btn-secondary">Back</a>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .user-card, .pending-user-card {
+        background-color: #ffffff;
+    }
+
+    .custom-button a {
+        text-decoration: none;
+    }
+</style>

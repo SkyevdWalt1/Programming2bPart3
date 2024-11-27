@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Sign Up";
+}
+
+@model SignInModel
+
+<div class="container mt-5">
+    <h2 class="text-center">Sign Up</h2>
+    <form asp-action="SignUserIn" method="post" class="border p-4 rounded shadow">
+        <div class="form-group">
+            <label asp-for="Username" class="font-weight-bold">Username</label>
+            <input asp-for="Username" class="form-control" placeholder="Enter your username" required />
+        </div>
+        <div class="form-group">
+            <label asp-for="Password1" class="font-weight-bold">Password</label>
+            <input asp-for="Password1" type="password" class="form-control" placeholder="Enter your password" required />
+        </div>
+        <div class="form-group">
+            <label asp-for="Password2" class="font-weight-bold">Confirm Password</label>
+            <input asp-for="Password2" type="password" class="form-control" placeholder="Confirm your password" required />
+        </div>
+        <button type="submit" class="btn btn-success btn-block">Register</button>
+    </form>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .container {
+        max-width: 400px;
+        margin: auto;
+    }
+
+    h2 {
+        color: #333;
+    }
+
+    .form-control {
+        border-radius: 0.25rem;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+</style>

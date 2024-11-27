@@ -1,0 +1,158 @@
+﻿@model Part_2.Models.SubmitClaimModel
+
+@{
+    ViewData["Title"] = "Create Claim";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Submit A Claim</h1>
+    <form asp-action="CreateClaim" asp-controller="User" method="post" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label asp-for="Title" class="form-label">Title</label>
+            <input asp-for="Title" class="form-control" required />
+            <div class="invalid-feedback">
+                Please provide a title for your claim.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Rate" class="form-label">Rate</label>
+            <input asp-for="Rate" type="number" class="form-control" id="rateInput" required />
+            <div class="invalid-feedback">
+                Rate must be a positive number.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Hours" class="form-label">Hours</label>
+            <input asp-for="Hours" type="number" class="form-control" id="hoursInput" required />
+            <div class="invalid-feedback">
+                Hours must be greater than 0.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="StartDate" class="form-label">Start Date</label>
+            <input asp-for="StartDate" type="date" class="form-control" id="startDateInput" required />
+            <div class="invalid-feedback">
+                Please select a start date.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="EndDate" class="form-label">End Date</label>
+            <input asp-for="EndDate" type="date" class="form-control" id="endDateInput" required />
+            <div class="invalid-feedback">
+                End Date must be after Start Date.
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Claim</button>
+    </form>
+
+    <!-- Auto Calculation -->
+    <div class="mt-4 p-3 bg-light border">
+        <h4>Total Cost Calculation</h4>
+        <p>Rate: <span id="displayRate">0</span></p>
+        <p>Hours: <span id="displayHours">0</span></p>
+        <p><strong>Total Cost: R <span id="totalCost">0.00</span></strong></p>
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-action="Index" asp-controller="User" class="btn btn-secondary">Back</a>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .container {
+        max-width: 600px;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+
+    #totalCost {
+        font-size: 1.5em;
+        color: #007bff;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        (function () {
+            'use strict';
+
+            // References to form inputs
+            const form = document.querySelector('.needs-validation');
+            const rateInput = document.getElementById('rateInput');
+            const hoursInput = document.getElementById('hoursInput');
+            const startDateInput = document.getElementById('startDateInput');
+            const endDateInput = document.getElementById('endDateInput');
+            const displayRate = document.getElementById('displayRate');
+            const displayHours = document.getElementById('displayHours');
+            const totalCost = document.getElementById('totalCost');
+
+            // Function to update total cost
+            function updateTotalCost() {
+                const rate = parseFloat(rateInput.value) || 0;
+                const hours = parseFloat(hoursInput.value) || 0;
+                const total = rate * hours;
+
+                displayRate.textContent = rate.toFixed(2);
+                displayHours.textContent = hours.toFixed(2);
+                totalCost.textContent = total.toFixed(2);
+            }
+
+            // Attach event listeners to inputs for live calculations
+            rateInput.addEventListener('input', updateTotalCost);
+            hoursInput.addEventListener('input', updateTotalCost);
+
+            // Form submission event with validation
+            form.addEventListener('submit', function (event) {
+                let isValid = true;
+
+                // Validate Rate (positive number)
+                if (rateInput.value <= 0 || isNaN(rateInput.value)) {
+                    rateInput.setCustomValidity("Rate must be a positive number.");
+                    isValid = false;
+                } else {
+                    rateInput.setCustomValidity("");
+                }
+
+                // Validate Hours (greater than 0)
+                if (hoursInput.value <= 0 || isNaN(hoursInput.value)) {
+                    hoursInput.setCustomValidity("Hours must be greater than 0.");
+                    isValid = false;
+                } else {
+                    hoursInput.setCustomValidity("");
+                }
+
+                // Validate Dates
+                const startDate = new Date(startDateInput.value);
+                const endDate = new Date(endDateInput.value);
+                if (startDateInput.value && endDateInput.value && startDate >= endDate) {
+                    endDateInput.setCustomValidity("End Date must be after Start Date.");
+                    isValid = false;
+                } else {
+                    endDateInput.setCustomValidity("");
+                }
+
+                if (!isValid || !form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+
+                form.classList.add('was-validated');
+            });
+        })();
+    </script>
+}

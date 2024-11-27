@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+@model Part_2.Models.LoginModel
+
+<div class="container mt-5">
+    <h2 class="text-center">Log In</h2>
+    <form asp-action="LogUserIn" method="post" class="border p-4 rounded shadow needs-validation" novalidate>
+        <div class="form-group">
+            <label asp-for="Username" class="font-weight-bold">Username</label>
+            <input asp-for="Username" class="form-control" id="usernameInput" placeholder="Enter your username" required />
+            <div class="invalid-feedback">
+                Username is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password" class="font-weight-bold">Password</label>
+            <input asp-for="Password" type="password" class="form-control" id="passwordInput" placeholder="Enter your password" required />
+            <div class="invalid-feedback">
+                Password is required.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Log In</button>
+    </form>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .container {
+        max-width: 400px;
+        margin: auto;
+    }
+
+    h2 {
+        color: #333;
+    }
+
+    .form-control {
+        border-radius: 0.25rem;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+</style>
+
+@section Scripts {
+    <script>
+        (function () {
+            'use strict';
+
+            const form = document.querySelector('.needs-validation');
+            const usernameInput = document.getElementById('usernameInput');
+            const passwordInput = document.getElementById('passwordInput');
+
+            form.addEventListener('submit', function (event) {
+                let isValid = true;
+
+                // Validate Username (non-empty)
+                if (usernameInput.value.trim() === '') {
+                    usernameInput.setCustomValidity("Username is required.");
+                    isValid = false;
+                } else {
+                    usernameInput.setCustomValidity("");
+                }
+
+                // Validate Password (non-empty)
+                if (passwordInput.value.trim() === '') {
+                    passwordInput.setCustomValidity("Password is required.");
+                    isValid = false;
+                } else {
+                    passwordInput.setCustomValidity("");
+                }
+
+                if (!isValid || !form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+
+                form.classList.add('was-validated');
+            });
+        })();
+    </script>
+}

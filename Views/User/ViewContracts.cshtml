@@ -1,0 +1,77 @@
+﻿@model UserLoggedInModel
+
+@{
+    ViewData["TItle"] = "Contracts";
+}
+
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">All Active Claims</h1>
+    <div class="claim-list">
+        @foreach (Claim claim in Model.Claims) {
+            <form asp-action="NotesAndDocuments" asp-controller="User" method="post" class="claim-component card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title">@claim.Title</h3>
+                    <div class="claim-details">
+                        <p class="card-text">Rate: R @claim.HourlyRate</p>
+                        <p class="card-text">Hours: @claim.Hours</p>
+                        <p class="card-text">Total Amount: R @claim.Total</p>
+                        <p class="card-text">Status: <span class="badge bg-primary">@claim.Status</span></p>
+                    </div>
+                    <div class="claim-dates">
+                        <p>
+                            <strong>Start Date:</strong> @claim.StartDate.ToShortDateString()
+                        </p>
+                        <p>
+                            <strong>End Date:</strong> @claim.EndDate.ToShortDateString()
+                        </p>
+                    </div>
+                    <input hidden name="claimId" value="@claim.ID"/>
+                    @if(claim.Status == "Active") {
+                        <button class="finish-claim" type="submit">Finish Claim</button>
+                    }
+                </div>
+            </form>
+        }
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-action="Index" asp-controller="User" class="btn btn-secondary">Back</a>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .claim-component {
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        background-color: #ffffff;
+    }
+
+    .claim-details {
+        margin-bottom: 10px;
+    }
+
+    .claim-dates {
+        margin-top: 10px;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .claim-list {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .finish-claim {
+        border-radius: 10px;
+        background: green;
+        color: white;
+    }
+</style>

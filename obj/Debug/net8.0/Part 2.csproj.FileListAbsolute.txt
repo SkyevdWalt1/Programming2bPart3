@@ -1,0 +1,52 @@
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\appsettings.json
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\Part 2.staticwebassets.runtime.json
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\Part 2.exe
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\Part 2.deps.json
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\Part 2.runtimeconfig.json
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\Part 2.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\Part 2.pdb
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\Part 2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\Part 2.AssemblyInfoInputs.cache
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\Part 2.AssemblyInfo.cs
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\Part 2.csproj.CoreCompileInputs.cache
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\Part 2.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\Part 2.RazorAssemblyInfo.cache
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\Part 2.RazorAssemblyInfo.cs
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\staticwebassets\msbuild.Part 2.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\staticwebassets\msbuild.build.Part 2.props
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Part 2.props
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Part 2.props
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\scopedcss\bundle\Part 2.styles.css
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\scopedcss\projectbundle\Part 2.bundle.scp.css
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\Part 2.dll
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\refint\Part 2.dll
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\Part 2.pdb
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\Part 2.genruntimeconfig.cache
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\ref\Part 2.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\Google.Protobuf.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\K4os.Compression.LZ4.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\K4os.Hash.xxHash.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\MySql.Data.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\System.Text.Json.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\runtimes\win-x64\native\comerr64.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\runtimes\win-x64\native\gssapi64.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\runtimes\win-x64\native\krb5_64.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\runtimes\win-x64\native\krbcc64.dll
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\Part 2.csproj.AssemblyReference.cache
+C:\Users\camcs\Desktop\Sky\Part 2\obj\Debug\net8.0\Part 2.csproj.Up2Date
+C:\Users\camcs\Desktop\Sky\Part 2\bin\Debug\net8.0\itextsharp.dll
